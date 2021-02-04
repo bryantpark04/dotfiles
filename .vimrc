@@ -7,7 +7,6 @@ set showcmd
 " set visualbell
 set belloff=all
 
-set guifont=Consolas:h12:cANSI:qDRAFT
 syntax on
 " set tabstop=4
 set shiftwidth=4
@@ -35,3 +34,30 @@ set nostartofline
 " set ruler
 " set laststatus=2
 set confirm
+
+" set noshowmode " for airline
+" let g:gruvbox_contrast_dark = 'hard'
+
+" call plug#begin('~/.vim/plugged')
+" Plug 'vim-airline/vim-airline'
+" Plug 'morhetz/gruvbox'
+" Plug 'arcticicestudio/nord-vim'
+" Plug 'artanikin/vim-synthwave84'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+" call plug#end()
+
+function! <SID>StripTrailingWhitespaces()
+  if !&binary && &filetype != 'diff'
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+  endif
+endfun
+
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+set packpath+=~/.vim
+packadd! dracula
+syntax enable
+colorscheme dracula
