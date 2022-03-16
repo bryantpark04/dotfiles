@@ -42,8 +42,10 @@ set confirm
 " Plug 'vim-airline/vim-airline'
 " Plug 'morhetz/gruvbox'
 " Plug 'arcticicestudio/nord-vim'
-" Plug 'artanikin/vim-synthwave84'
-" Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Plug 'sheerun/vim-polyglot'
+" Plug 'ghifarit53/tokyonight-vim'
+
 " call plug#end()
 
 function! <SID>StripTrailingWhitespaces()
@@ -57,7 +59,15 @@ endfun
 " autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-set packpath+=~/.vim
-packadd! dracula
+" set packpath+=~/.vim
+" packadd! onedark.vim
 syntax enable
-colorscheme dracula
+
+" colorscheme nord
+
+set termguicolors
+
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" colorscheme tokyonight
+" let g:airline_theme = "tokyonight"
