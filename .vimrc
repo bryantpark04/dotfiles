@@ -15,10 +15,10 @@ set softtabstop=4
 set expandtab
 " ret!
 set backspace=indent,eol,start
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
+" noremap ; l
+" noremap l k
+" noremap k j
+" noremap j h
 set smarttab
 set smartindent
 set autoread
