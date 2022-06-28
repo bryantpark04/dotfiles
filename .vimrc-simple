@@ -1,0 +1,44 @@
+syntax on
+set nocompatible
+filetype indent plugin on
+set hidden
+set wildmenu
+set nostartofline
+set showcmd
+" set visualbell
+set belloff=all
+" ret!
+
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set smarttab
+set smartindent
+set autoindent
+" set tabstop=4
+set backspace=indent,eol,start
+
+set autoread
+set nobackup
+set nowb
+set noswapfile
+set number " relativenumber
+set ignorecase
+set smartcase
+set nostartofline
+" set ruler
+" set laststatus=2
+set confirm
+set termguicolors
+
+function! <SID>StripTrailingWhitespaces()
+  if !&binary && &filetype != 'diff'
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+  endif
+endfun
+
+" autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
